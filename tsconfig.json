@@ -26,5 +26,12 @@
       "~/*": ["src/*"]
     }
   },
+  "ts-node": {
+    "transpileOnly"  	: true	, // faster to skip typechecking
+    // "esm"         	: true	, // tell ts-node CLI to install the --loader automatically
+    "compilerOptions"	: {
+      "module"       	: "CommonJS" , // ESNext breaks with yarn PNP github.com/yarnpkg/berry/discussions/4044
+    }                	,
+  },
   "exclude": ["dist", "node_modules"]
 }
