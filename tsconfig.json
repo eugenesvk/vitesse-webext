@@ -20,5 +20,10 @@
       "~/*": ["src/*"]
     }
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "exclude": ["dist", "node_modules"]
 }
