@@ -1,6 +1,6 @@
-import type { Tabs } from 'webextension-polyfill'
-import browser from 'webextension-polyfill'
-import { onMessage, sendMessage } from 'webext-bridge'
+import type { Tabs }             	from 'webextension-polyfill'
+import browser                   	from 'webextension-polyfill'
+import { onMessage, sendMessage }	from 'webext-bridge'
 
 browser.runtime.onInstalled.addListener((): void => {
   // eslint-disable-next-line no-console
@@ -23,25 +23,19 @@ browser.tabs.onActivated.addListener(async({ tabId }) => {
     tab = await browser.tabs.get(previousTabId)
     previousTabId = tabId
   }
-  catch {
-    return
-  }
+  catch { return }
 
   // eslint-disable-next-line no-console
   console.log('previous tab', tab)
-  sendMessage('tab-prev', { title: tab.title }, { context: 'content-script', tabId })
+  sendMessage('tab-prev', {title:tab.title}, {context:'content-script', tabId})
 })
 
 onMessage('get-current-tab', async() => {
   try {
     const tab = await browser.tabs.get(previousTabId)
-    return {
-      title: tab?.title,
-    }
+    return { title: tab?.title, }
   }
   catch {
-    return {
-      title: undefined,
-    }
+    return { title: undefined, }
   }
 })
