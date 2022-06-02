@@ -19,7 +19,7 @@ async function stubIndexHtml() { // Stub index.html to use Vite in development
 }
 
 function writeManifest() {
-  execSync('npx esno ./scripts/manifest.ts', { stdio: 'inherit' })
+  execSync('yarn ts-node  --transpileOnly ./scripts/manifest.ts', { stdio: 'inherit' })
 }
 
 fs.ensureDirSync(r('extension'))
