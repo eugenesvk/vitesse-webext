@@ -37,6 +37,7 @@
     "@vue/compiler-sfc": "^3.2.35",
     "@vue/test-utils": "^2.0.0",
     "@vueuse/core": "^8.5.0",
+    "@yarnpkg/esbuild-plugin-pnp": "^3.0.0-rc.6",
     "chokidar": "^3.5.3",
     "cross-env": "^7.0.3",
     "crx": "^5.0.1",

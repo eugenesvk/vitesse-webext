@@ -1,5 +1,6 @@
 import { defineConfig }	from 'tsup'
 import { isDev }       	from './scripts/utils'
+import { pnpPlugin }   	from '@yarnpkg/esbuild-plugin-pnp';
 
 export default defineConfig(() => ({
   entry               	: {
@@ -15,6 +16,7 @@ export default defineConfig(() => ({
   define              	: {
     __DEV__           	: JSON.stringify(isDev),
   }                   	,
+  esbuildPlugins      	: [pnpPlugin()],
   minifyWhitespace    	: !isDev,
   minifySyntax        	: !isDev,
 }))
