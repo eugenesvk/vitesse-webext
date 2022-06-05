@@ -8,7 +8,7 @@ import packageJson     	from './package.json'
 export default defineConfig({ // bundling the content script using Vite
   ...sharedConfig,
   build         	: {
-    watch       	: isDev ? {} : undefined,
+    // watch    	: isDev ? {} : undefined, // crashes on Windows
     outDir      	: r('extension/dist/contentScripts'),
     cssCodeSplit	: false,
     emptyOutDir 	: false,
