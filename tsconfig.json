@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "ESNext",
+    "moduleResolution": "nodenext",
     "target": "es2016",
     "lib": ["DOM", "ESNext"],
     "strict": true,
@@ -9,7 +10,6 @@
     "incremental": false,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "moduleResolution": "node",
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "forceConsistentCasingInFileNames": true,
