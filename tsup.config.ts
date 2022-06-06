@@ -5,7 +5,7 @@ import { pnpPlugin }   	from '@yarnpkg/esbuild-plugin-pnp';
 export default defineConfig(() => ({
   entry               	: {
     'background/index'	: './src/background/index.ts',
-    ...(isDev ?       	{ mv3client:'./scripts/client.ts' } : {}),
+    ...(isDev         	? {mv3client:'./scripts/client.ts'} : {}),
   }                   	,
   outDir              	: 'extension/dist',
   format              	: ['esm'], // cjs|esm|iife
