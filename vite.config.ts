@@ -25,12 +25,13 @@ export const sharedConfig	: UserConfig = {
     solidPlugin(),
     Icon({compiler:'solid',}), // github.com/antfu/unplugin-icons
     AutoImport({
-      imports: [
-        'solid-js', // preset
-        {'webextension-polyfill': [['*','browser'],],},
-      ],
-      dts: r('src/auto-imports.d.ts'),
-      resolvers: [IconRes({componentPrefix:'Icon',}),],
+      imports                    	: [                	  // global imports to register
+        'solid-js'               	                   	, // preset
+        {                        	                   	  // custom imports
+          'webextension-polyfill'	: [['*','browser']]	,	// default: import {* as browser} from 'w-p'
+      }],
+      dts      	: r('src/auto-imports.d.ts')         	, // path to generate corresponding .d.ts file
+      resolvers	: [IconRes({componentPrefix:'Icon'})]	, // custom resolvers compatible with unplugin-vue-components
     }),
     { name   	: 'assets-rewrite', // rewrite assets to use relative path
       enforce	: 'post',
