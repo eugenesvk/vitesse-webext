@@ -6,6 +6,7 @@ import Icons                	from 'unplugin-icons/vite'
 import AutoImport           	from 'unplugin-auto-import/vite'
 import WindiCSS             	from 'vite-plugin-windicss'
 import windiConfig          	from './windi.config'
+import solidPlugin          	from 'vite-plugin-solid'
 import { isDev, port, r }   	from './scripts/utils'
 import { MV3Hmr }           	from './vite-mv3-hmr'
 
@@ -20,6 +21,7 @@ export const sharedConfig	: UserConfig = {
     __DEV__              	: isDev,
   },
   plugins	: [
+    solidPlugin(),
     AutoImport({
       imports: [
         {'webextension-polyfill': [['*','browser'],],},
@@ -62,6 +64,8 @@ export default defineConfig(({ command }) => ({
         popup    	: r('src/popup/index.html'),
       },
     },
+    // target               	: 'esnext', // from vite-solid-ts-windicss
+    // polyfillDynamicImport	: false, // from vite-solid-ts-windicss
   },
   plugins	: [
     ...sharedConfig.plugins!,
