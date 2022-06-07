@@ -2,10 +2,7 @@
 import { dirname, relative }	from 'path'
 import type { UserConfig }  	from 'vite'
 import { defineConfig }     	from 'vite'
-import Vue                  	from '@vitejs/plugin-vue'
 import Icons                	from 'unplugin-icons/vite'
-import IconsResolver        	from 'unplugin-icons/resolver'
-import Components           	from 'unplugin-vue-components/vite'
 import AutoImport           	from 'unplugin-auto-import/vite'
 import WindiCSS             	from 'vite-plugin-windicss'
 import windiConfig          	from './windi.config'
@@ -23,20 +20,11 @@ export const sharedConfig	: UserConfig = {
     __DEV__              	: isDev,
   },
   plugins	: [
-    Vue(),
     AutoImport({
       imports: [
-        'vue',
         {'webextension-polyfill': [['*','browser'],],},
       ],
       dts: r('src/auto-imports.d.ts'),
-    }),
-    Components({ //github.com/antfu/unplugin-vue-components
-      dirs     	: [r('src/components')],
-      dts      	: r('src/components.d.ts'), // generate `components.d.ts` for ts support with Volar
-      resolvers	: [
-        IconsResolver({componentPrefix:'',}),// auto import icons
-      ],
     }),
     Icons(), // github.com/antfu/unplugin-icons
     { name   	: 'assets-rewrite', // rewrite assets to use relative path
@@ -49,11 +37,9 @@ export const sharedConfig	: UserConfig = {
   ],
   optimizeDeps	: {
     include   	: [
-      'vue',
-      '@vueuse/core',
       'webextension-polyfill',
     ],
-    exclude	: ['vue-demi',],
+    exclude	: [],
   },
 }
 
