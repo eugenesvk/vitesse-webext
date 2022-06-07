@@ -5,22 +5,24 @@
   "module"              	: "NodeNext",
   "compilerOptions": {
     "baseUrl"                         	: ".",  // awaiting fix github.com/vitejs/vite/issues/2825
+    "target"                          	: "ESNext",
     "module"                          	: "ESNext",
     "moduleResolution"                	: "nodenext",
-    "target"                          	: "es2016",
+    "allowSyntheticDefaultImports"    	: true,
     "lib"                             	: ["DOM", "ESNext"],
     "strict"                          	: true,
     "esModuleInterop"                 	: true,
     "incremental"                     	: false,
     "skipLibCheck"                    	: true,
     "jsx"                             	: "preserve",
+    "jsxImportSource"                 	: "solid-js",
     "resolveJsonModule"               	: true,
     "noUnusedLocals"                  	: true,
     "forceConsistentCasingInFileNames"	: true,
-    "types"                           	: [
-      "vite/client"                   	,
-    ]                                 	,
-    "paths": {
+    "types"                           	: ["vite/client",]	,
+    "noEmit"                          	: true,
+    "isolatedModules"                 	: true,
+    "paths"                           	: {
       "~/*": ["src/*"]
     }
   },
