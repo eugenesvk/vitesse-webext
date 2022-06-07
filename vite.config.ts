@@ -2,7 +2,8 @@
 import { dirname, relative }	from 'path'
 import type { UserConfig }  	from 'vite'
 import { defineConfig }     	from 'vite'
-import Icons                	from 'unplugin-icons/vite'
+import Icon                 	from 'unplugin-icons/vite'
+import IconRes              	from 'unplugin-icons/resolver'
 import AutoImport           	from 'unplugin-auto-import/vite'
 import WindiCSS             	from 'vite-plugin-windicss'
 import windiConfig          	from './windi.config'
@@ -22,13 +23,15 @@ export const sharedConfig	: UserConfig = {
   },
   plugins	: [
     solidPlugin(),
+    Icon({compiler:'solid',}), // github.com/antfu/unplugin-icons
     AutoImport({
       imports: [
+        'solid-js', // preset
         {'webextension-polyfill': [['*','browser'],],},
       ],
       dts: r('src/auto-imports.d.ts'),
+      resolvers: [IconRes({componentPrefix:'Icon',}),],
     }),
-    Icons(), // github.com/antfu/unplugin-icons
     { name   	: 'assets-rewrite', // rewrite assets to use relative path
       enforce	: 'post',
       apply  	: 'build',
