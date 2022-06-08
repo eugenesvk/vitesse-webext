@@ -9,21 +9,14 @@ browser.runtime.onInstalled.addListener((): void => {
 
 let previousTabId = 0
 
-// communication example: send previous tab title from background page
-// see shim.d.ts for type declaration
+// comm example: send previous tab title from background page (shim.d.ts for type declaration)
 browser.tabs.onActivated.addListener(async({ tabId }) => {
-  if (!previousTabId) {
-    previousTabId = tabId
-    return
-  }
+  if (!previousTabId) { previousTabId = tabId; return}
 
   let tab: Tabs.Tab
-
-  try {
-    tab = await browser.tabs.get(previousTabId)
+  try { tab = await browser.tabs.get(previousTabId)
     previousTabId = tabId
-  }
-  catch { return }
+  } catch { return }
 
   // eslint-disable-next-line no-console
   console.log('previous tab', tab)
@@ -31,11 +24,9 @@ browser.tabs.onActivated.addListener(async({ tabId }) => {
 })
 
 onMessage('get-current-tab', async() => {
-  try {
-    const tab = await browser.tabs.get(previousTabId)
-    return { title: tab?.title, }
-  }
-  catch {
-    return { title: undefined, }
+  try { const tab = await browser.tabs.get(previousTabId)
+    return { title: tab?.title }
+  } catch {
+    return { title: undefined }
   }
 })
