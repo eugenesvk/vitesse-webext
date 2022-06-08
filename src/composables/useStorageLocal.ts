@@ -1,30 +1,33 @@
-import { storage } from 'webextension-polyfill'
-import type {
-  MaybeRef,
-  RemovableRef,
-  StorageAsyncOptions,
-  StorageLikeAsync,
-} from '@vueuse/core'
-import {
-  useStorageAsync,
-} from '@vueuse/core'
+import {storage}           	from 'webextension-polyfill'
+import type                	{
+  AsyncStorage             	,
+  AnyStorageProps          	,
+  AsyncStorageWithOptions  	,
+  AsyncStorageObject       	,
+  AsyncStorageSetter       	,
+  // AsyncStorageActions   	, // not exported in index.d.ts from types-7e293a10
+}                          	from '@solid-primitives/storage'
+import {createAsyncStorage}	from '@solid-primitives/storage'
 
-const storageLocal: StorageLikeAsync = {
-  removeItem(key: string) {
-    return storage.local.remove(key)
-  },
+export type AsyncStorageActions<T> = {
+  remove	: (key:string)	=> Promise<void> | void;
+  clear 	: ()          	=> Promise<void> | void;
+  error 	: ()          	=> Error | undefined;
+  toJSON	: ()          	=> Promise<{ [key:string]:T;}>;
+};
 
-  setItem(key: string, value: string) {
-    return storage.local.set({ [key]: value })
-  },
+export const storageLocalAPI:AsyncStorage = {
+     getItem	: async (key:string)             	=>(await storage.local.get(  key))[key],
+     setItem	:       (key:string,value:string)	=>       storage.local.set( {[key]:value}),
+  removeItem	:       (key:string)             	=>       storage.local.remove(key),
+  clear     	:       ()                       	=> void  storage.local.clear(),
+  key       	:       (index:number)           	=>       undefined,
+  length    	:                                	         undefined
+};
 
-  async getItem(key: string) {
-    return (await storage.local.get(key))[key]
-  },
-}
-
-export const useStorageLocal = <T>(
-  key: string,
-  initialValue: MaybeRef<T>,
-  options?: StorageAsyncOptions<T>,
-): RemovableRef<T> => useStorageAsync(key, initialValue, storageLocal, options)
+export const useStorageLocal = <O, T>(
+  props?:AnyStorageProps<T, AsyncStorage|AsyncStorageWithOptions<O>, O>
+  ):[store  	: AsyncStorageObject< T>,
+     setter 	: AsyncStorageSetter< T, O>,
+     actions	: AsyncStorageActions<T>
+  ] => createAsyncStorage(props)
