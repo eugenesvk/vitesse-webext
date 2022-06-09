@@ -4,6 +4,7 @@
     "antfu.iconify",
     "dbaeumer.vscode-eslint",
     "voorjaar.windicss-intellisense",
-    "csstools.postcss"
+    "csstools.postcss",
+    "arcanis.vscode-zipfs"
   ]
 }

@@ -1,13 +1,21 @@
 {
-  "cSpell.words": ["Vitesse"],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "Vitesse"
+  ],
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
   "volar.tsPlugin": true,
   "volar.tsPluginStatus": false,
   "vite.autoStart": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
   "files.associations": {
-    "*.css": "postcss",
+    "*.css": "postcss"
   },
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
