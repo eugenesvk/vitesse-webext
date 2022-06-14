@@ -1,6 +1,6 @@
 declare const __DEV__: boolean
 
-declare module '*.vue' {
+declare module '*.tsx' {
   const component: any
   export default component
 }
