@@ -1,6 +1,5 @@
-import { createApp } from 'vue'
-import App from './Popup.vue'
-import '../styles'
+import { render }	from 'solid-js/web'
+import App       	from './Popup'
+import           	     '../styles'
 
-const app = createApp(App)
-app.mount('#app')
+render(App, document.getElementById('app'));
