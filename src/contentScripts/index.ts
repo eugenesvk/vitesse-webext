@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import { onMessage }	from 'webext-bridge'
-import { render }   	from 'solid-js/web'
 import App          	from './views/App'
 
 (() => { // Firefox `browser.tabs.executeScript()` requires scripts return a primitive value

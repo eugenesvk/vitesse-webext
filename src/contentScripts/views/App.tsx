@@ -1,5 +1,4 @@
-import { createSignal }	from 'solid-js'
-import                 	     'virtual:windi.css'
+import	     'virtual:windi.css'
 
 export default function App () {
   const [show, setShow]	= createSignal(false);
