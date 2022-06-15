@@ -1,4 +1,5 @@
 import { storageDemo, key }	from '~/logic/storage'
+import Logo                	from '../components/Logo'
 
 function openOptionsPage() {
   browser.runtime.openOptionsPage()
