@@ -30,8 +30,10 @@ export const sharedConfig	: UserConfig = {
         {                        	                   	  // custom imports
           'webextension-polyfill'	: [['*','browser']]	,	// default: import {* as browser} from 'w-p'
       }],
-      dts      	: r('src/auto-imports.d.ts')         	, // path to generate corresponding .d.ts file
-      resolvers	: [IconRes({componentPrefix:'Icon'})]	, // custom resolvers compatible with unplugin-vue-components
+      dts        	: r('src/auto-imports.d.ts')	, // path to generate corresponding .d.ts file
+      resolvers  	: [IconRes({
+        prefix   	: 'Icon'          	,
+        extension	: 'jsx'        })]	, // custom resolvers compatible with unplugin-vue-components
     }),
     { name   	: 'assets-rewrite', // rewrite assets to use relative path
       enforce	: 'post',
