@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { onMessage }	from 'webext-bridge'
-import { createApp }	from 'vue'
-import App          	from './views/App.vue'
+import { render }   	from 'solid-js/web'
+import App          	from './views/App'
 
 (() => { // Firefox `browser.tabs.executeScript()` requires scripts return a primitive value
   console.info('[vitesse-webext] Hello world from content script')
@@ -20,5 +20,5 @@ import App          	from './views/App.vue'
   shadowDOM.appendChild(styleEl)
   shadowDOM.appendChild(root)
   document.body.appendChild(container)
-  createApp(App).mount(root)
+  render(App, root);
 })()
