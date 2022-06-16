@@ -2,6 +2,8 @@ import type { Tabs }             	from 'webextension-polyfill'
 import browser                   	from 'webextension-polyfill'
 import { onMessage, sendMessage }	from 'webext-bridge'
 
+if (__DEV__) { import('./contentScriptHMR') }
+
 browser.runtime.onInstalled.addListener((): void => {
   // eslint-disable-next-line no-console
   console.log('Extension installed')
