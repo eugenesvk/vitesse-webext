@@ -70,8 +70,8 @@ export default defineConfig(({ command }) => ({
         popup    	: r('src/popup/index.html'),
       },
     },
-    // target               	: 'esnext', // from vite-solid-ts-windicss
-    // polyfillDynamicImport	: false, // from vite-solid-ts-windicss
+    target               	: 'esnext',
+    polyfillDynamicImport	: false,
   },
   plugins	: [
     ...sharedConfig.plugins!,

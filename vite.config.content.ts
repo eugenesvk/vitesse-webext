@@ -24,8 +24,8 @@ export default defineConfig({ // bundling the content script using Vite
         extend        	: true,
       },
     },
-    // target               	: 'esnext', // from vite-solid-ts-windicss
-    // polyfillDynamicImport	: false, // from vite-solid-ts-windicss
+    target               	: 'esnext',
+    polyfillDynamicImport	: false,
   },
   plugins	: [
     ...sharedConfig.plugins!,
