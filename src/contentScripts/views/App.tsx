@@ -12,7 +12,7 @@ export default function App () {
     <div class= "flex w-10 h-10 rounded-full shadow cursor-pointer"
       bg     	= "teal-600 hover:teal-700"
       onClick	= {toggle}>
-      <pixelarticons-power class="block m-auto text-white text-lg"/>
+      <IconPixelarticonsPower class="block m-auto text-white text-lg"/>
     </div>
   </div>
 </>);}

@@ -16,7 +16,7 @@ export default function App () {
   <input value={ keyVal() } oninput={ async (e) => await setStorageDemo(key, e.target.value) }
     class="border border-gray-400 rounded px-2 py-1 mt-2" />
   <div class="mt-4">
-    Powered by Vite <pixelarticons-zap class="align-middle"/>
+    Powered by Vite <IconPixelarticonsZap class="align-middle"/>
   </div>
  </main>
 );}
