@@ -1,4 +1,5 @@
 /// <reference types="vitest" />
+/// <reference types="vite/client" />
 import { dirname, relative }	from 'path'
 import type { UserConfig }  	from 'vite'
 import { defineConfig }     	from 'vite'
@@ -17,6 +18,7 @@ export const sharedConfig	: UserConfig = {
     alias                	: {
       '~/'               	: `${r('src')}/`,
     }                    	,
+    conditions           	: ['development', 'browser'],
   }                      	,
   define                 	: {
     __DEV__              	: isDev,
@@ -78,8 +80,16 @@ export default defineConfig(({ command }) => ({
     WindiCSS({config:windiConfig,}), // github.com/antfu/vite-plugin-windicss
     MV3Hmr(),
   ],
-  test         	: {
-    globals    	: true,
-    environment	: 'jsdom',
+  test           	: {
+    globals      	: true,
+    environment  	: 'jsdom',
+    transformMode	: {
+      web        	: [/.[jt]sx?/],
+    }            	,
+    deps         	: {
+      inline     	: [/solid-js/,/solid-testing-library/], // fix vitest resolution issue
+    }            	,
+    threads      	: false, // try commenting one or both out to improve performance
+    isolate      	: false,
   },
 }))
