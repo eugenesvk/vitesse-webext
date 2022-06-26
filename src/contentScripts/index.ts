@@ -13,7 +13,8 @@ import App          	from './views/App'
   const container	= document.createElement('div')
   const root     	= document.createElement('div')
   const styleEl  	= document.createElement('link')
-  const shadowDOM	= container.attachShadow?.({ mode: __DEV__ ? 'open' : 'closed' }) || container
+  const shadowDOM	= container.attachShadow?.({ mode: __DEV__ ? 'open' : 'open' }) || container
+  // SolidJS App script fails unless 'open', any workaround (Portal with useShadow also uses 'open')?
   styleEl.setAttribute('rel', 'stylesheet')
   styleEl.setAttribute('href', browser.runtime.getURL('dist/contentScripts/style.css'))
   shadowDOM.appendChild(styleEl)
