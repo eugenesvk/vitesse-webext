@@ -53,8 +53,8 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 ### Dev tools
 
 - [TypeScript](https://www.typescriptlang.org/)
-- [esno](https://github.com/antfu/esno) - TypeScript / ESNext node runtime powered by esbuild
 - [yarn with Plug'n'Play](https://yarnpkg.com/features/pnp) - fast, disk space efficient package manager that culls the gargantuan amounts of node_modules files
+- [esno](https://github.com/antfu/esno) - TypeScript / ESNext node runtime powered by esbuild (disabled due to the limitation of the Node loader API not working with yarn PnP)
 - [npm-run-all](https://github.com/mysticatea/npm-run-all) - Run multiple npm-scripts in parallel or sequential
 - [web-ext](https://github.com/mozilla/web-ext) - Streamlined experience for developing web extensions
 
