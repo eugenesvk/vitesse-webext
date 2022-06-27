@@ -70,10 +70,9 @@ export default defineConfig(({ command }) => ({
       input      	: {
         options  	: r('src/options/index.html'),
         popup    	: r('src/popup/index.html'),
-      },
-    },
-    target               	: 'esnext',
-    polyfillDynamicImport	: false,
+      }          	,
+    }            	,
+    target       	: 'esnext'
   },
   plugins	: [
     ...sharedConfig.plugins!,
