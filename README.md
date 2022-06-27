@@ -22,7 +22,7 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 - 🌟 [Icons](./src/components) - Access to icons from any iconset directly
 - 🖥 Content Script - Use Solid even in content script
 - 🌍 WebExtension - isomorphic extension for Chrome, Firefox, and others
-- 📃 Dynamic `manifest.json` with full type support
+- 📃 Dynamic `manifest.json` (Manifest V3) with full type support
 
 ## Pre-packed
 
