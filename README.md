@@ -53,8 +53,8 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 ### Dev tools
 
 - [TypeScript](https://www.typescriptlang.org/)
-- [pnpm](https://pnpm.js.org/) - fast, disk space efficient package manager
 - [esno](https://github.com/antfu/esno) - TypeScript / ESNext node runtime powered by esbuild
+- [yarn with Plug'n'Play](https://yarnpkg.com/features/pnp) - fast, disk space efficient package manager that culls the gargantuan amounts of node_modules files
 - [npm-run-all](https://github.com/mysticatea/npm-run-all) - Run multiple npm-scripts in parallel or sequential
 - [web-ext](https://github.com/mozilla/web-ext) - Streamlined experience for developing web extensions
 
@@ -68,12 +68,10 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 
 If you prefer to do it manually with the cleaner git history
 
-> If you don't have pnpm installed, run: npm install -g pnpm
-
 ```bash
 npx degit antfu/vitesse-webext my-webext
 cd my-webext
-pnpm i
+yarn install
 ```
 
 ## Usage
@@ -94,7 +92,7 @@ pnpm i
 ### Development
 
 ```bash
-pnpm dev
+yarn dev
 ```
 
 Then **load extension in browser with the `extension/` folder**.
@@ -102,7 +100,7 @@ Then **load extension in browser with the `extension/` folder**.
 For Firefox developers, you can run the following command instead:
 
 ```bash
-pnpm start:firefox
+yarn start:firefox
 ```
 
 `web-ext` auto reload the extension when `extension/` files changed.
@@ -114,7 +112,7 @@ pnpm start:firefox
 To build the extension, run
 
 ```bash
-pnpm build
+yarn build
 ```
 
 And then pack files under `extension`, you can upload `extension.crx` or `extension.xpi` to appropriate extension store.
